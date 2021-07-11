@@ -11,6 +11,7 @@
       color: white;
       padding: 5px 30px;
     }
+
     td {
       border: 1px solid black;
       padding: 5px 30px;
@@ -20,18 +21,30 @@
 </head>
 
 <body>
-  <table>
-    <tr>
-      <th>name</th>
-      <th>age</th>
-    </tr>
-    @foreach ($items as $item)
-        <tr>
-          <td>{{$item->name}}</td>
-          <td>{{$item->age}}</td>
-        </tr>
-    @endforeach
-  </table>  
+  <form action="/add" method="POST">
+    <table>
+      @csrf
+      <tr>
+        <th>id</th>
+        <td>
+          <input type="text" name="id">
+        </td>
+      </tr>
+      <tr>
+        <th>name</th>
+        <td>
+          <input type="text" name="name">
+        </td>
+      </tr>
+      <tr>
+        <th>age</th>
+        <td>
+          <input type="text" name="age">
+        </td>
+      </tr>
+    </table>
+    <button>送信</button>
+  </form>  
 </body>
 
 </html>
